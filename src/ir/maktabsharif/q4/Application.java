@@ -14,7 +14,6 @@ public class Application {
         myList.add(1);
         myList.add(6);
         myList.add(3);
-
         System.out.println(showIteratedElements(myList));
     }
     public static HashSet<Integer> showIteratedElements (List<Integer> yourList) {

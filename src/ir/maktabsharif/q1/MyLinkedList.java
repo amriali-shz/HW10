@@ -1,6 +1,8 @@
 package ir.maktabsharif.q1;
 
-public class MyLinkedList<T> {
+import java.util.List;
+
+public abstract class MyLinkedList<T> implements List<T> {
 
     public Node<T> head;
     private int length = 0;
@@ -9,6 +11,7 @@ public class MyLinkedList<T> {
         this.head = null;
     }
 
+    @Override
     public boolean isEmpty() {
         return head == null;
         //first I wanted to write this
@@ -16,7 +19,8 @@ public class MyLinkedList<T> {
         // then I realized head == null returns boolean anyway, so I simplified it in that way!
     }
 
-    public void add(T element) {
+    @Override
+    public boolean add(T element) {
         Node<T> temp = new Node<>(element);
         if (isEmpty()) {
             head = temp;
@@ -28,8 +32,10 @@ public class MyLinkedList<T> {
             current.next = temp;
         }
         length++;
+        return true;
     }
 
+    @Override
     public void add(int index, T element) {
         if (index > length + 1) {
             System.out.println("The position is unavailable in the List");
@@ -52,7 +58,8 @@ public class MyLinkedList<T> {
         prev.next.next = temp;
     }
 
-    public void remove(T element) {
+    @Override
+    public boolean remove(Object element) {
         Node<T> prev = new Node<>(null);
         prev.next = head;
         Node<T> next = head.next;
@@ -82,12 +89,14 @@ public class MyLinkedList<T> {
             System.out.println("Your given value is not in the list");
         }
 
+        return found;
     }
 
-    public void remove(int index) {
+    @Override
+    public T remove(int index) {
         if (index < 0 || index >= length) {
             System.out.println("The index is unavailable in the List");
-            return;
+            return null;
         }
         if (index == 0) {
             head = head.next;
@@ -101,9 +110,11 @@ public class MyLinkedList<T> {
             prev.next = temp.next;
         }
         length--;
+        return null;
     }
 
-    public int indexOf(T element) {
+    @Override
+    public int indexOf(Object element) {
         Node<T> temp = head;
         int index = 0;
 

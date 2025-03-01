@@ -3,8 +3,10 @@ package ir.maktabsharif.q3;
 import java.util.*;
 
 public class Application {
+    public static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        String myInput = "11,1|1,5|5,4|4,7";
+        System.out.println("Please enter your input:");
+        String myInput = input.next();
         System.out.println(findLink(myInput));
     }
 

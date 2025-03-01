@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Application {
     public static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
+        System.out.println("Hi. Welcome to your Contact Management System!");
         printMenu();
         menuSwitch();
     }
@@ -24,7 +25,6 @@ public class Application {
 
     public static void menuSwitch() {
         ContactsManagement contactsManagement = new ContactsManagement();
-        System.out.println("Hi. Welcome to your Contact Management System!");
         while (true) {
             printMenu();
             System.out.println("Choose the number: ");

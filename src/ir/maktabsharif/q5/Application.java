@@ -1,8 +1,8 @@
 package ir.maktabsharif.q5;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.*;
 
 public class Application {
     public static Scanner input = new Scanner(System.in);
@@ -18,10 +18,9 @@ public class Application {
         System.out.println(firstInput);
         System.out.println("Loading ...");
         System.out.println("Now this a new map that inform you about how many frequented input you wrote:\n" + findIteratedValues(firstInput));
-
-
         System.out.println(findSameLength(findIteratedValues(firstInput)));
     }
+
     public static HashMap<String, Integer> findIteratedValues(HashMap<Integer, String> integerStringHashMap) {
         HashMap<String, Integer> finalMap = new HashMap<>();
 
@@ -32,18 +31,20 @@ public class Application {
         return finalMap;
     }
 
-    public static HashMap<Integer, String[]> findSameLength (HashMap<String, Integer> stringIntegerHashMap) {
-        HashMap<Integer, String[]> finalMap = new HashMap<>();
-        for (int i = 0; i < stringIntegerHashMap.size(); i++) {
-            if (stringIntegerHashMap.containsKey(i)) {
-                finalMap.put(i, null);
+    public static HashMap<Integer, List<String>> findSameLength (HashMap<String, Integer> stringIntegerHashMap) {
+        HashMap<Integer, List<String>> finalMap = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : stringIntegerHashMap.entrySet()) {
+            String value = entry.getKey();
+            int frequency = entry.getValue();
+            List<String> list;
+            if (finalMap.containsKey(frequency)) {
+                list = finalMap.get(frequency);
+            } else {
+                list = new ArrayList<>();
+                finalMap.put(frequency, list);
             }
-            for (int j = i + 1; j < stringIntegerHashMap.size(); j++) {
-                if (stringIntegerHashMap.get(j).equals(stringIntegerHashMap.get(i))) {
-                    String [] valueOfFinalMap = new String[stringIntegerHashMap.get(i)];
-                    finalMap.put(i, valueOfFinalMap);
-                }
-            }
+
+            list.add(value);
         }
         return finalMap;
     }

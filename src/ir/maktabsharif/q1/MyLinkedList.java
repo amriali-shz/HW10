@@ -1,5 +1,6 @@
 package ir.maktabsharif.q1;
 
+import java.util.Iterator;
 import java.util.List;
 
 public abstract class MyLinkedList<T> implements List<T> {
@@ -126,5 +127,11 @@ public abstract class MyLinkedList<T> implements List<T> {
             index++;
         }
         return -1;
+    }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }

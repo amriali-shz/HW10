@@ -11,7 +11,7 @@ public class Application {
         firstArrayList.add(1);
         firstArrayList.add(1);
         firstArrayList.add(3);
-        firstArrayList.add(5);
+        firstArrayList.add(2);
         firstArrayList.add(6);
         firstArrayList.add(8);
 
@@ -20,7 +20,6 @@ public class Application {
         secondArrayList.add(7);
         secondArrayList.add(9);
         secondArrayList.add(11);
-
         System.out.println(arrangeCombine(firstArrayList, secondArrayList));
     }
     public static ArrayList<Integer> arrangeCombine (ArrayList<Integer> firstArrayList, ArrayList<Integer> secondArrayList) {
